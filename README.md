@@ -1,5 +1,5 @@
 # springboottestdemo
-创建一个springboot工程的测试案例
+创建一个springboot工程的测试案例/n
 使用mybatis连接数据库，拿到指定数据
 创建本案例的初衷是想要测试使用接口定义常量，并在工程中使用到该常量
 记录错误：使用mybatis的过程中，遇到一些问题，在这里记录一下

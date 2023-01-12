@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.univers.basic.mapper.QixingcaiMapper">
+    <insert id="addData" parameterType="com.univers.basic.entity.Qixingcai">
+        insert INTO  qixingcai(id,ge,shi,bai,qian,wan,shiwan,baiwan) values(#{id},#{ge},#{shi},#{bai},#{qian},#{wan},#{shiwan},#{baiwan})
+    </insert>
+
+    <sql id="defaultSql">
+       select * from qixingcai
+    </sql>
+    <select id="getData" parameterType="com.univers.basic.entity.vo.QixingcaiVo" resultType="com.univers.basic.entity.Qixingcai">
+        <include refid="defaultSql"></include>
+        <where>
+          <if test="ge!=0">
+              AND ge=#{ge}
+          </if>
+          <if test="shi!=0">
+              AND shi=#{shi}
+          </if>
+            <if test="bai!=0'">
+                AND bai=#{bai}
+            </if>
+            <if test="qian!=0">
+                AND qian=#{qian}
+            </if>
+            <if test="ge==0 and shi==0 and bai==0 and qian==0">
+                AND ge=#{ge}AND shi=#{shi}AND bai=#{bai}AND qian=#{qian}
+            </if>
+        </where>
+    </select>
+</mapper>

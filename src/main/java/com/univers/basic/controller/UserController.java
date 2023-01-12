@@ -19,12 +19,18 @@ public class UserController {
     public @ResponseBody String User(){
         User user = new User();
         user.setAge(19);
-        user.setId(2L);
-        user.setName("hongli"+ Constant_Interface.constant);
+//        user.setId(2L);
+        user.setName("hongli"+ Constant_Interface.constant+"aaa");
         user.setGmt_create(new Date());
         user.setGmt_modified(new Date());
         userService.addUser(user);
 //        String format = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss").format(new Date());
         return "添加成功";
+    }
+    //通过指定id查询用户，并返回
+    @GetMapping("/getUser/{id}")
+    public @ResponseBody User getUser(@PathVariable("id")Long id){
+        User user = userService.getUserById(id);
+        return user;
     }
 }

@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.univers.basic.mapper.UserMapper">
-    <select id="addUser" parameterType="com.univers.basic.entity.User" resultType="java.lang.Boolean">
-        insert INTO  user_1(id,name,age,gmt_create,gmt_modified) values(#{id},#{name},#{age},#{gmt_create},#{gmt_modified})
+    <insert id="addUser" parameterType="com.univers.basic.entity.User" >
+        insert INTO  user(name,age,gmt_create,gmt_modified,database_id) values(#{name},#{age},#{gmt_create},#{gmt_modified},#{database_id})
+    </insert>
+    <select id="getUserById" parameterType="java.lang.Long" resultType="com.univers.basic.entity.User">
+        select * from user
+        <where>
+            <if test="id!=0">
+                id=#{id}
+            </if>
+        </where>
     </select>
+
 </mapper>

@@ -4,10 +4,12 @@ import java.util.Date;
 
 public class User {
     private Long id;
+    private Long database_id;
     private String name;
     private Integer age;
     private Date gmt_create;
     private Date gmt_modified;
+
     public Long getId() {
         return id;
     }
@@ -47,4 +49,25 @@ public class User {
     public void setGmt_modified(Date gmt_modified) {
         this.gmt_modified = gmt_modified;
     }
+
+    public Long getDatabase_id() {
+        return database_id;
+    }
+
+    public void setDatabase_id(Long database_id) {
+        this.database_id = database_id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", database_id=" + database_id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", gmt_create=" + gmt_create +
+                ", gmt_modified=" + gmt_modified +
+                '}';
+    }
+
 }

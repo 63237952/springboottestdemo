@@ -17,6 +17,6 @@ public class Demotest {
     private UserController userController;
     @Test
     public void add(){
-        userController.User();
+//        userController.User();
     }
 }

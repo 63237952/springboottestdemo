@@ -16,13 +16,12 @@ public class UserController {
     @Autowired
     private  UserService userService;
     @RequestMapping(value = "/user",method = RequestMethod.POST)
-    public @ResponseBody String User(){
-        User user = new User();
-        user.setAge(19);
-//        user.setId(2L);
-        user.setName("hongli"+ Constant_Interface.constant+"aaa");
-        user.setGmt_create(new Date());
-        user.setGmt_modified(new Date());
+    public @ResponseBody String User(@RequestBody User user){
+        System.out.println(user);
+        if(user.getGmt_create()==null &&user.getGmt_modified()==null){
+            user.setGmt_create(new Date());
+            user.setGmt_modified(new Date());
+        }
         userService.addUser(user);
 //        String format = new SimpleDateFormat("yyyy:MM:dd HH:mm:ss").format(new Date());
         return "添加成功";

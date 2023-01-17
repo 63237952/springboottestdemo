@@ -32,4 +32,5 @@ public class UserController {
         User user = userService.getUserById(id);
         return user;
     }
+
 }
